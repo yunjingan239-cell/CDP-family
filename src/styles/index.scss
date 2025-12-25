@@ -1,0 +1,7 @@
+// element-plus组件所有样式
+@import "element-plus/dist/index.css"; 
+// 自定义样式放到elementplus下面才会覆盖elementplus原样式
+@import './app.scss';
+@import './transition.scss';
+@import 'element-plus/theme-chalk/dark/css-vars.css';
+@import './dark.scss';
