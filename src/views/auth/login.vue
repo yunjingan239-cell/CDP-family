@@ -138,7 +138,7 @@ function submitForm() {
 
   .login-wrap {
     width: 410px;
-    height: 460px;
+    min-height: 460px;
     margin: auto;
     margin-right: 130px;
     padding: 30px;
@@ -163,11 +163,18 @@ function submitForm() {
     }
 
     .login-form {
+      :deep(.el-form-item__content) {
+        width: 100%;
+      }
+
       .el-form-item {
         margin-bottom: 26px;
       }
 
       .login-other {
+        width: 100%;
+        display: flex;
+        align-items: center;
         span {
           color: #999;
           font-size: 13px;

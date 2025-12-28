@@ -105,7 +105,7 @@ function setQuickCode() {
     <el-table ref="tableListRef" v-loading="loading" :data="tableList" border stripe>
       <el-table-column fixed="left" align="left" header-align="center" prop="name" label="商品名/编码" width="230"
         show-overflow-tooltip>
-        <template #default="row">
+        <template #default="{ row }">
           <div class="flex">
             <el-avatar shape="square" :size="50" :src="row.imageUrl" />
             <div class="ml5">
@@ -125,12 +125,13 @@ function setQuickCode() {
         show-overflow-tooltip></el-table-column>
       <el-table-column sortable align="center" prop="price" label="销售价" width="130"></el-table-column>
       <el-table-column sortable align="center" prop="price" label="商品特价" min-width="110">
-        <template #default="row">{{ row.discountPrice ? '¥' + row.discountPrice : '无' }}</template>
+        <template #default="{ row }">{{ row.discountPrice ? '¥' + row.discountPrice : '无' }}</template>
       </el-table-column>
+
       <el-table-column sortable align="center" prop="cost" label="成本价" width="130"></el-table-column>
       <el-table-column align="center" prop="createTime" label="入库时间" width="160"></el-table-column>
       <el-table-column align="center" prop="statusText" label="商品状态" width="110">
-        <template #default="row">
+        <template #default="{ row }">
           <!-- beforeChange属性，其触发的函数需要接收参数，则要以函数方式绑定 () => xxx()
     若返回 false 或者返回 Promise 且被 reject，则停止切换。
     -->
@@ -139,7 +140,7 @@ function setQuickCode() {
         </template>
       </el-table-column>
       <el-table-column fixed="right" align="center" label="操作" width="200">
-        <template #default="row">
+        <template #default="{ row }">
           <el-button link type="warning" icon="ele-Edit" @click.stop="handleEdit(row)">修改</el-button>
           <el-popconfirm width="auto" :title="`确定永久删除【${row.name}】吗？`" @confirm="handleDelete(row.id)">
             <template #reference>
